@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
+import android.support.v4.app.FragmentActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
+
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ArgbEvaluator;
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -83,6 +85,19 @@ public class WaveCompat {
     public static void startWaveFilterForResult(final Activity activity, WaveDrawable waveDrawable, final Intent intent, final int requestCode, int backgroundColor) {
         intent.putExtra(IntentKey.BACKGROUND_COLOR, backgroundColor);
         startWaveFilterForResult(activity, waveDrawable, intent, requestCode);
+    }
+
+    /**
+     * Start an activity for result with wave effect.
+     * @param activity
+     * @param waveDrawable
+     * @param intent
+     * @param requestCode
+     * @param backgroundColor
+     */
+    public static void startWaveFilterForResult(final FragmentActivity activity, WaveDrawable waveDrawable, final Intent intent, final int requestCode, int backgroundColor) {
+        intent.putExtra(IntentKey.BACKGROUND_COLOR, backgroundColor);
+        startWaveFilterForResult(activity.getParent(), waveDrawable, intent, requestCode);
     }
 
     /**
