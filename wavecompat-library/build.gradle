@@ -8,10 +8,6 @@ buildscript {
 }
 apply plugin: 'com.android.library'
 
-repositories {
-    jcenter()
-}
-
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.0"
